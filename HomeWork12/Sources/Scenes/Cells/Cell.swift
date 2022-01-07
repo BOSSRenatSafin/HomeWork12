@@ -6,3 +6,8 @@
 //
 
 import UIKit
+
+class Cell: UITableViewCell {
+    
+    static let identifireCell = "Cell"
+}

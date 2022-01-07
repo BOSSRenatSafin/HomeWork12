@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.backgroundColor = .systemRed
+        tableView.register(Cell.self, forCellReuseIdentifier: Cell.identifireCell)
+        tableView.dataSource = self
         return tableView
     }()
     
@@ -48,3 +49,20 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
+extension ViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifireCell, for: indexPath) as? Cell else { return UITableViewCell() }
+        return cell
+    }
+}
