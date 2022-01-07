@@ -4,7 +4,6 @@
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
-
 import UIKit
 
 class FirstSection: UITableViewCell {
@@ -62,5 +61,4 @@ class FirstSection: UITableViewCell {
                               notificationLabelText: nil)
                 ]]
     }
-    
 }

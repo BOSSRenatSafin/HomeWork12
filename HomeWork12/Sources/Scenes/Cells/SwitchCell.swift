@@ -4,7 +4,6 @@
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
-
 import UIKit
 
 class SwitchCell: Cell {
@@ -24,7 +23,8 @@ class SwitchCell: Cell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupHierarcyToOverride()
-        setupLayoutToOverride()    }
+        setupLayoutToOverride()
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

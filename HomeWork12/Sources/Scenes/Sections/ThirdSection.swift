@@ -4,7 +4,6 @@
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
-
 import UIKit
 
 class ThirdSection: UITableViewCell {
@@ -33,7 +32,7 @@ class ThirdSection: UITableViewCell {
                               colorImage: .systemYellow,
                               textLabel: "Пункт управления",
                               typeCell: .cell,
-                             trailingLabelText: nil,
+                              trailingLabelText: nil,
                               notificationLabelText: nil),
                  SettingsCell(nameImage: "textformat.size",
                               colorImage: .systemBlue,
@@ -55,6 +54,5 @@ class ThirdSection: UITableViewCell {
                               notificationLabelText: nil)
                 ]]
     }
-    
 }
 

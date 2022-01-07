@@ -4,7 +4,6 @@
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -18,7 +17,9 @@ class ViewController: UIViewController {
         tableView.register(Cell.self, forCellReuseIdentifier: Cell.identifireCell)
         tableView.register(SwitchCell.self, forCellReuseIdentifier: SwitchCell.identifireSwitchCell)
         tableView.register(NotificationCell.self, forCellReuseIdentifier: NotificationCell.identifierNotificationCell)
+        tableView.rowHeight = 55
         tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
     
@@ -31,7 +32,8 @@ class ViewController: UIViewController {
         setupViewNavigationBar()
         updateData(addTo: FirstSection.addCellsToSection())
         updateData(addTo: SecondSection.addCellsToSection())
-        updateData(addTo: ThirdSection.addCellsToSection())    }
+        updateData(addTo: ThirdSection.addCellsToSection())
+    }
     
     // MARK: - Settings
     
@@ -60,7 +62,6 @@ class ViewController: UIViewController {
         data.append(contentsOf: addTo)
         return data
     }
-
 }
 
 // MARK: - UITableViewDataSource
@@ -90,6 +91,25 @@ extension ViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationCell.identifierNotificationCell, for: indexPath) as? NotificationCell else { return UITableViewCell() }
             cell.config(mod: model)
             return cell
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let model = data[indexPath.section][indexPath.row]
+        
+        switch model.typeCell {
+        case .cell:
+            print(model.textLabel)
+        case .switchCell:
+            print(model.textLabel)
+        case .notificationCell:
+            print(model.textLabel)
         }
     }
 }
