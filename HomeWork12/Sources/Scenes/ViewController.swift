@@ -11,8 +11,14 @@ class ViewController: UIViewController {
     
     // MARK: - Views
     
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.backgroundColor = .systemRed
+        return tableView
+    }()
+    
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHierarhy()
@@ -23,11 +29,15 @@ class ViewController: UIViewController {
     // MARK: - Settings
     
     private func setupHierarhy() {
-        
+        view.addSubview(tableView)
     }
     
     private func setupLayout() {
-        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
     // MARK: - SettingsNavigationBar
