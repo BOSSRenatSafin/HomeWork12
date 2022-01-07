@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(Cell.self, forCellReuseIdentifier: Cell.identifireCell)
+        tableView.register(SwitchCell.self, forCellReuseIdentifier: SwitchCell.identifireSwitchCell)
+        tableView.register(NotificationCell.self, forCellReuseIdentifier: NotificationCell.identifierNotificationCell)
         tableView.dataSource = self
         return tableView
     }()
@@ -28,7 +30,8 @@ class ViewController: UIViewController {
         setupLayout()
         setupViewNavigationBar()
         updateData(addTo: FirstSection.addCellsToSection())
-    }
+        updateData(addTo: SecondSection.addCellsToSection())
+        updateData(addTo: ThirdSection.addCellsToSection())    }
     
     // MARK: - Settings
     
@@ -65,17 +68,28 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        return data[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = data[indexPath.section][indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifireCell, for: indexPath) as? Cell else { return UITableViewCell() }
-        cell.config(mod: model)
-        return cell
+        switch model.typeCell {
+        case .cell:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifireCell, for: indexPath) as? Cell else { return UITableViewCell() }
+            cell.config(mod: model)
+            return cell
+        case .switchCell:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifireSwitchCell, for: indexPath) as? SwitchCell else { return UITableViewCell() }
+            cell.config(mod: model)
+            return cell
+        case .notificationCell:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationCell.identifierNotificationCell, for: indexPath) as? NotificationCell else { return UITableViewCell() }
+            cell.config(mod: model)
+            return cell
+        }
     }
 }
