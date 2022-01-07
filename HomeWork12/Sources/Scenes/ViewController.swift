@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var data = [[SettingsCell]]()
+    
     // MARK: - Views
     
     lazy var tableView: UITableView = {
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
         setupHierarhy()
         setupLayout()
         setupViewNavigationBar()
+        updateData(addTo: FirstSection.addCellsToSection())
     }
     
     // MARK: - Settings
@@ -47,6 +50,14 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         title = "Настройки"
     }
+    
+    // MARK: - UpdateData
+    
+    private func updateData(addTo: [[SettingsCell]]) -> [[SettingsCell]] {
+        data.append(contentsOf: addTo)
+        return data
+    }
+
 }
 
 // MARK: - UITableViewDataSource
@@ -62,7 +73,9 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let model = data[indexPath.section][indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifireCell, for: indexPath) as? Cell else { return UITableViewCell() }
+        cell.config(mod: model)
         return cell
     }
 }
