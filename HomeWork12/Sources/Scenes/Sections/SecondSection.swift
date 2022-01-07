@@ -4,7 +4,6 @@
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
-
 import UIKit
 
 class SecondSection: UITableViewCell {
@@ -33,7 +32,7 @@ class SecondSection: UITableViewCell {
                               colorImage: .systemYellow,
                               textLabel: "Звуки, тактильные сигналы",
                               typeCell: .cell,
-                             trailingLabelText: nil,
+                              trailingLabelText: nil,
                               notificationLabelText: nil),
                  SettingsCell(nameImage: "moon.fill",
                               colorImage: .systemIndigo,
@@ -49,5 +48,4 @@ class SecondSection: UITableViewCell {
                               notificationLabelText: nil)
                 ]]
     }
-    
 }

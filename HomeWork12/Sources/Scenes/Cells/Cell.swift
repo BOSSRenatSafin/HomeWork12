@@ -4,7 +4,6 @@
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
-
 import UIKit
 
 struct SettingsCell {
@@ -89,7 +88,6 @@ class Cell: UITableViewCell {
         imageIcon.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive =  true
         imageIcon.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive = true
         
-        
         leadingLabel.translatesAutoresizingMaskIntoConstraints = false
         leadingLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         leadingLabel.leadingAnchor.constraint(equalTo: imageIcon.trailingAnchor, constant: 20).isActive = true
@@ -106,6 +104,7 @@ class Cell: UITableViewCell {
         trailingLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         trailingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50).isActive = true
     }
+    
     // MARK: - Func
     
     public func config(mod: SettingsCell) {

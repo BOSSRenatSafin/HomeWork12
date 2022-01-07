@@ -4,7 +4,6 @@
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
-
 import UIKit
 
 class NotificationCell: Cell {
@@ -24,7 +23,7 @@ class NotificationCell: Cell {
     }()
     
     private lazy var notificationLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textColor = .white
         label.numberOfLines = 1
         label.textAlignment = .center
@@ -44,7 +43,8 @@ class NotificationCell: Cell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupHierarcyToOverride()
-        setupLayoutToOverride()    }
+        setupLayoutToOverride()
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
