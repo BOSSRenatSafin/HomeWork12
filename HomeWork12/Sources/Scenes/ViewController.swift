@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         tableView.register(Cell.self, forCellReuseIdentifier: Cell.identifireCell)
         tableView.register(SwitchCell.self, forCellReuseIdentifier: SwitchCell.identifireSwitchCell)
         tableView.register(NotificationCell.self, forCellReuseIdentifier: NotificationCell.identifierNotificationCell)
-        tableView.rowHeight = 55
+        tableView.rowHeight = Metric.tableViewRowHeight
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -64,52 +64,8 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - Constants
 
-extension ViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = data[indexPath.section][indexPath.row]
-        switch model.typeCell {
-        case .cell:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifireCell, for: indexPath) as? Cell else { return UITableViewCell() }
-            cell.config(mod: model)
-            return cell
-        case .switchCell:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifireSwitchCell, for: indexPath) as? SwitchCell else { return UITableViewCell() }
-            cell.config(mod: model)
-            return cell
-        case .notificationCell:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationCell.identifierNotificationCell, for: indexPath) as? NotificationCell else { return UITableViewCell() }
-            cell.config(mod: model)
-            return cell
-        }
-    }
-}
-
-// MARK: - UITableViewDelegate
-
-extension ViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let model = data[indexPath.section][indexPath.row]
-        
-        switch model.typeCell {
-        case .cell:
-            print(model.textLabel)
-        case .switchCell:
-            print(model.textLabel)
-        case .notificationCell:
-            print(model.textLabel)
-        }
-    }
+extension Metric {
+    static let tableViewRowHeight: CGFloat = 55
 }

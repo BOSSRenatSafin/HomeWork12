@@ -37,7 +37,7 @@ class Cell: UITableViewCell {
     
     lazy var leadingLabel: UILabel = {
         var leadingLabel = UILabel()
-        leadingLabel.font = UIFont.systemFont(ofSize: 18)
+        leadingLabel.font = UIFont.systemFont(ofSize: Metric.leadingLabelFont)
         leadingLabel.lineBreakMode = .byClipping
         return leadingLabel
     }()
@@ -48,21 +48,13 @@ class Cell: UITableViewCell {
         return trailingLabel
     }()
     
-    private lazy var imageNextPage: UIImageView = {
-        var imageNext = UIImageView()
-        imageNext.image = UIImage(systemName: "chevron.right")
-        imageNext.tintColor = UIColor.systemGray
-        return imageNext
-    }()
-    
     // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupHierarcy()
-        setupHierarcyToOverride()
         setupLayout()
-        setupLayoutToOverride()
+        accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {
@@ -71,46 +63,45 @@ class Cell: UITableViewCell {
     
     // MARK: - Settings
     
-    private func setupHierarcy() {
+    func setupHierarcy() {
         contentView.addSubview(imageIcon)
         contentView.addSubview(leadingLabel)
-    }
-    
-    func setupHierarcyToOverride() {
-        contentView.addSubview(imageNextPage)
         contentView.addSubview(trailingLabel)
     }
     
-    private func setupLayout() {
+    func setupLayout() {
         imageIcon.translatesAutoresizingMaskIntoConstraints = false
         imageIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        imageIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        imageIcon.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive =  true
-        imageIcon.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive = true
+        imageIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Metric.imageIconLeading).isActive = true
+        imageIcon.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: Metric.imageIconHeight).isActive =  true
+        imageIcon.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: Metric.imageIconWidth).isActive = true
         
         leadingLabel.translatesAutoresizingMaskIntoConstraints = false
         leadingLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        leadingLabel.leadingAnchor.constraint(equalTo: imageIcon.trailingAnchor, constant: 20).isActive = true
-    }
-    
-    func setupLayoutToOverride() {
-        imageNextPage.translatesAutoresizingMaskIntoConstraints = false
-        imageNextPage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        imageNextPage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        imageNextPage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive =  true
-        imageNextPage.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true
+        leadingLabel.leadingAnchor.constraint(equalTo: imageIcon.trailingAnchor, constant: Metric.leadingLabel).isActive = true
         
         trailingLabel.translatesAutoresizingMaskIntoConstraints = false
         trailingLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        trailingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50).isActive = true
+        trailingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Metric.trailingLabel).isActive = true
     }
     
     // MARK: - Func
     
-    public func config(mod: SettingsCell) {
-        imageIcon.image = UIImage(systemName: mod.nameImage)
-        imageIcon.backgroundColor = mod.colorImage
-        leadingLabel.text = mod.textLabel
-        trailingLabel.text = mod.trailingLabelText
+    public func configure(model: SettingsCell) {
+        imageIcon.image = UIImage(systemName: model.nameImage)
+        imageIcon.backgroundColor = model.colorImage
+        leadingLabel.text = model.textLabel
+        trailingLabel.text = model.trailingLabelText
     }
+}
+
+// MARK: - Constants
+
+enum Metric {
+    static let trailingLabel: CGFloat = -20
+    static let leadingLabel: CGFloat = 20
+    static let imageIconLeading: CGFloat = 20
+    static let imageIconHeight: CGFloat = 0.7
+    static let imageIconWidth: CGFloat = 0.7
+    static let leadingLabelFont: CGFloat = 18
 }

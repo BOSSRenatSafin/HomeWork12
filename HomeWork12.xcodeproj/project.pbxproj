@@ -18,6 +18,8 @@
 		151719CC27889F2F00A61C6D /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719CB27889F2F00A61C6D /* Cell.swift */; };
 		151719CE27889F4700A61C6D /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719CD27889F4700A61C6D /* SwitchCell.swift */; };
 		151719D027889F5300A61C6D /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719CF27889F5300A61C6D /* NotificationCell.swift */; };
+		151719D2278E184500A61C6D /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719D1278E184500A61C6D /* TableViewDelegate.swift */; };
+		151719D4278E189100A61C6D /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719D3278E189100A61C6D /* TableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		151719CB27889F2F00A61C6D /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		151719CD27889F4700A61C6D /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		151719CF27889F5300A61C6D /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		151719D1278E184500A61C6D /* TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
+		151719D3278E189100A61C6D /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				151719AD27889CD000A61C6D /* ViewController.swift */,
+				151719D1278E184500A61C6D /* TableViewDelegate.swift */,
+				151719D3278E189100A61C6D /* TableViewDataSource.swift */,
 				151719C427889EE100A61C6D /* Sections */,
 				151719C327889EDA00A61C6D /* Cells */,
 			);
@@ -224,6 +230,8 @@
 				151719CE27889F4700A61C6D /* SwitchCell.swift in Sources */,
 				151719C827889F1700A61C6D /* SecondSection.swift in Sources */,
 				151719CA27889F2500A61C6D /* ThirdSection.swift in Sources */,
+				151719D2278E184500A61C6D /* TableViewDelegate.swift in Sources */,
+				151719D4278E189100A61C6D /* TableViewDataSource.swift in Sources */,
 				151719CC27889F2F00A61C6D /* Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,7 @@ class NotificationCell: Cell {
     private lazy var notificationLabelContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 15
+        view.layer.cornerRadius = Metric.viewCornerRadius
         view.layer.masksToBounds = true
         view.addSubview(notificationLabel)
         view.backgroundColor = .red
@@ -25,25 +25,15 @@ class NotificationCell: Cell {
     private lazy var notificationLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.numberOfLines = 1
         label.textAlignment = .center
         label.lineBreakMode = .byClipping
         return label
-    }()
-    
-    private lazy var imageNextPage: UIImageView = {
-        var imageNext = UIImageView()
-        imageNext.image = UIImage(systemName: "chevron.right")
-        imageNext.tintColor = UIColor.systemGray
-        return imageNext
     }()
     
     // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupHierarcyToOverride()
-        setupLayoutToOverride()
     }
     
     required init?(coder: NSCoder) {
@@ -52,37 +42,42 @@ class NotificationCell: Cell {
     
     // MARK: - Settings
     
-    override func setupHierarcyToOverride() {
+    override func setupHierarcy() {
+        super.setupHierarcy()
         contentView.addSubview(notificationLabelContainer)
-        contentView.addSubview(imageNextPage)
     }
     
-    override func setupLayoutToOverride() {
+    override func setupLayout() {
+        super.setupLayout()
         notificationLabelContainer.translatesAutoresizingMaskIntoConstraints = false
         notificationLabelContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        notificationLabelContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50).isActive = true
-        notificationLabelContainer.heightAnchor.constraint(equalToConstant: 30).isActive =  true
-        notificationLabelContainer.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        notificationLabelContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Metric.notificationLabelContainerTrailing).isActive = true
+        notificationLabelContainer.heightAnchor.constraint(equalToConstant: Metric.notificationLabelContainerHeight).isActive =  true
+        notificationLabelContainer.widthAnchor.constraint(equalToConstant: Metric.notificationLabelContainerWhidth).isActive = true
         
         notificationLabel.translatesAutoresizingMaskIntoConstraints = false
         notificationLabel.centerYAnchor.constraint(equalTo: notificationLabelContainer.centerYAnchor).isActive = true
         notificationLabel.centerXAnchor.constraint(equalTo: notificationLabelContainer.centerXAnchor).isActive = true
-        notificationLabel.widthAnchor.constraint(equalToConstant: 10).isActive = true
-        notificationLabel.heightAnchor.constraint(equalToConstant: 10).isActive = true
-        
-        imageNextPage.translatesAutoresizingMaskIntoConstraints = false
-        imageNextPage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        imageNextPage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        imageNextPage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive =  true
-        imageNextPage.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true
+        notificationLabel.widthAnchor.constraint(equalToConstant: Metric.notificationLabelWidth).isActive = true
+        notificationLabel.heightAnchor.constraint(equalToConstant: Metric.notificationLabelHeight).isActive = true
     }
     
-    override public func config(mod: SettingsCell) {
-        imageIcon.image = UIImage(systemName: mod.nameImage)
-        imageIcon.backgroundColor = mod.colorImage
-        leadingLabel.text = mod.textLabel
-        trailingLabel.text = mod.trailingLabelText
-        notificationLabel.text = mod.notificationLabelText
+    override public func configure(model: SettingsCell) {
+        imageIcon.image = UIImage(systemName: model.nameImage)
+        imageIcon.backgroundColor = model.colorImage
+        leadingLabel.text = model.textLabel
+        trailingLabel.text = model.trailingLabelText
+        notificationLabel.text = model.notificationLabelText
     }
 }
 
+// MARK: - Constants
+
+extension Metric {
+    static let notificationLabelWidth: CGFloat = 10
+    static let notificationLabelHeight: CGFloat = 10
+    static let notificationLabelContainerWhidth: CGFloat = 30
+    static let notificationLabelContainerHeight: CGFloat = 30
+    static let notificationLabelContainerTrailing: CGFloat = -20
+    static let viewCornerRadius: CGFloat = 15
+}

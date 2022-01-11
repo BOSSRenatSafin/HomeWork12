@@ -22,8 +22,7 @@ class SwitchCell: Cell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupHierarcyToOverride()
-        setupLayoutToOverride()
+        accessoryType = .none
     }
     
     required init?(coder: NSCoder) {
@@ -32,13 +31,21 @@ class SwitchCell: Cell {
     
     // MARK: - Settings
     
-    override func setupHierarcyToOverride() {
+    override func setupHierarcy() {
+        super.setupHierarcy()
         contentView.addSubview(toSwitch)
     }
     
-    override func setupLayoutToOverride() {
+    override func setupLayout() {
+        super.setupLayout()
         toSwitch.translatesAutoresizingMaskIntoConstraints = false
         toSwitch.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        toSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
+        toSwitch.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Metric.toSwitchTrailing).isActive = true
     }
+}
+
+// MARK: - Constants
+
+extension Metric {
+    static let toSwitchTrailing: CGFloat = -20
 }
