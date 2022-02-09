@@ -30,7 +30,9 @@ class ViewController: UIViewController {
         setupHierarhy()
         setupLayout()
         setupViewNavigationBar()
-        updateData(addTo: Sections.addCellsToSections())
+        updateData(addTo: FirstSection.addCellsToSection())
+        updateData(addTo: SecondSection.addCellsToSection())
+        updateData(addTo: ThirdSection.addCellsToSection())
     }
     
     // MARK: - Settings
