@@ -1,12 +1,12 @@
 //
-//  NotificationCell.swift
+//  NotificationViewCell.swift
 //  HomeWork12
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
 import UIKit
 
-class NotificationCell: Cell {
+class NotificationViewCell: ViewCell {
     
     static let identifierNotificationCell = "NotificationCell"
     
@@ -71,13 +71,3 @@ class NotificationCell: Cell {
     }
 }
 
-// MARK: - Constants
-
-extension Metric {
-    static let notificationLabelWidth: CGFloat = 10
-    static let notificationLabelHeight: CGFloat = 10
-    static let notificationLabelContainerWhidth: CGFloat = 30
-    static let notificationLabelContainerHeight: CGFloat = 30
-    static let notificationLabelContainerTrailing: CGFloat = -20
-    static let viewCornerRadius: CGFloat = 15
-}
