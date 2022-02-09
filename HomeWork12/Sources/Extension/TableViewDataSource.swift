@@ -9,29 +9,29 @@ import UIKit
 
 // MARK: - UITableViewDataSource
 
-extension ViewController: UITableViewDataSource {
+extension SettingView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+        return ViewController.data.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
+        return ViewController.data[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = data[indexPath.section][indexPath.row]
+        let model = ViewController.data[indexPath.section][indexPath.row]
         switch model.typeCell {
         case .cell:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifireCell, for: indexPath) as? Cell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewCell.identifireCell, for: indexPath) as? ViewCell else { return UITableViewCell() }
             cell.configure(model: model)
             return cell
         case .switchCell:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifireSwitchCell, for: indexPath) as? SwitchCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchViewCell.identifireSwitchCell, for: indexPath) as? SwitchViewCell else { return UITableViewCell() }
             cell.configure(model: model)
             return cell
         case .notificationCell:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationCell.identifierNotificationCell, for: indexPath) as? NotificationCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: NotificationViewCell.identifierNotificationCell, for: indexPath) as? NotificationViewCell else { return UITableViewCell() }
             cell.configure(model: model)
             return cell
         }

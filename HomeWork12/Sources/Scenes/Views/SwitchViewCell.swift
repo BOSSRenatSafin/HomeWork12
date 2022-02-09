@@ -1,12 +1,12 @@
 //
-//  SwitchCell.swift
+//  SwitchViewCell.swift
 //  HomeWork12
 //
 //  Created by Ренат Сафин on 07.01.2022.
 //
 import UIKit
 
-class SwitchCell: Cell {
+class SwitchViewCell: ViewCell {
     
     static let identifireSwitchCell = "SwitchCell"
     
@@ -44,8 +44,3 @@ class SwitchCell: Cell {
     }
 }
 
-// MARK: - Constants
-
-extension Metric {
-    static let toSwitchTrailing: CGFloat = -20
-}
