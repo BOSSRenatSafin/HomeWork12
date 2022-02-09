@@ -12,15 +12,15 @@ import UIKit
 extension SettingView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return ViewController.data.count
+        return SettingsController.data.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ViewController.data[section].count
+        return SettingsController.data[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = ViewController.data[indexPath.section][indexPath.row]
+        let model = SettingsController.data[indexPath.section][indexPath.row]
         switch model.typeCell {
         case .cell:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewCell.identifireCell, for: indexPath) as? ViewCell else { return UITableViewCell() }

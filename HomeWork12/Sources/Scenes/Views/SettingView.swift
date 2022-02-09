@@ -38,8 +38,6 @@ class SettingView: UIView {
         setupLayout()
     }
     
-    
-    
     // MARK: - Settings
     
     private func setupHierarchy() {
@@ -53,5 +51,4 @@ class SettingView: UIView {
         tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-    
 }

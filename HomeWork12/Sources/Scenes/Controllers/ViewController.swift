@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsController: UIViewController {
     
     static var data = [[SettingsCell]]()
     
@@ -33,8 +33,8 @@ class ViewController: UIViewController {
     // MARK: - UpdateData
     
     private func updateData(addTo: [[SettingsCell]]) -> [[SettingsCell]] {
-        ViewController.data.append(contentsOf: addTo)
-        return ViewController.data
+        SettingsController.data.append(contentsOf: addTo)
+        return SettingsController.data
     }
 }
 
