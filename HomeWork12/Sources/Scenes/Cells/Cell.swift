@@ -6,21 +6,6 @@
 //
 import UIKit
 
-struct SettingsCell {
-    let nameImage: String
-    let colorImage: UIColor
-    let textLabel: String
-    let typeCell: TypeCell
-    let trailingLabelText: String?
-    let notificationLabelText: String?
-}
-
-enum TypeCell {
-    case cell
-    case switchCell
-    case notificationCell
-}
-
 class Cell: UITableViewCell {
     
     static let identifireCell = "Cell"
