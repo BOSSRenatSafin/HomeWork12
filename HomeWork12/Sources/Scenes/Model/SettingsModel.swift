@@ -8,7 +8,6 @@
 import Foundation
 
 class SettingsModel {
-    
     static func addCellsToSections() -> [[SettingsCell]] {
         return [
             // MARK: - FirstSection
