@@ -76,6 +76,7 @@
 		150E91BC27B44B6300FF4991 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				151719AD27889CD000A61C6D /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,7 +167,6 @@
 				150E91BC27B44B6300FF4991 /* Controllers */,
 				150E91BB27B44B4B00FF4991 /* Views */,
 				150E91BA27B44B4600FF4991 /* Model */,
-				151719AD27889CD000A61C6D /* ViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

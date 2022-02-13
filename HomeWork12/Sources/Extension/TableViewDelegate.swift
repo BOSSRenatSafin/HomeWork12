@@ -13,7 +13,7 @@ extension SettingView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let model = ViewController.data[indexPath.section][indexPath.row]
+        let model = SettingsController.data[indexPath.section][indexPath.row]
         
         switch model.typeCell {
         case .cell:
