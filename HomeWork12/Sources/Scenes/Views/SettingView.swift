@@ -11,14 +11,7 @@ class SettingView: UIView {
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(ViewCell.self, forCellReuseIdentifier: ViewCell.identifireCell)
-        tableView.register(SwitchViewCell.self, forCellReuseIdentifier: SwitchViewCell.identifireSwitchCell)
-        tableView.register(NotificationViewCell.self, forCellReuseIdentifier: NotificationViewCell.identifierNotificationCell)
         tableView.rowHeight = Metric.tableViewRowHeight
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        
         return tableView
     }()
     

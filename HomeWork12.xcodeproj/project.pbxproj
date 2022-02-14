@@ -19,8 +19,6 @@
 		151719CC27889F2F00A61C6D /* ViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719CB27889F2F00A61C6D /* ViewCell.swift */; };
 		151719CE27889F4700A61C6D /* SwitchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719CD27889F4700A61C6D /* SwitchViewCell.swift */; };
 		151719D027889F5300A61C6D /* NotificationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719CF27889F5300A61C6D /* NotificationViewCell.swift */; };
-		151719D2278E184500A61C6D /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719D1278E184500A61C6D /* TableViewDelegate.swift */; };
-		151719D4278E189100A61C6D /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151719D3278E189100A61C6D /* TableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +36,6 @@
 		151719CB27889F2F00A61C6D /* ViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCell.swift; sourceTree = "<group>"; };
 		151719CD27889F4700A61C6D /* SwitchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewCell.swift; sourceTree = "<group>"; };
 		151719CF27889F5300A61C6D /* NotificationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewCell.swift; sourceTree = "<group>"; };
-		151719D1278E184500A61C6D /* TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
-		151719D3278E189100A61C6D /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +80,6 @@
 		150E91C327B450D200FF4991 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				151719D1278E184500A61C6D /* TableViewDelegate.swift */,
-				151719D3278E189100A61C6D /* TableViewDataSource.swift */,
 				150E91C427B456A800FF4991 /* Constants.swift */,
 			);
 			path = Extension;
@@ -250,8 +244,6 @@
 				151719CE27889F4700A61C6D /* SwitchViewCell.swift in Sources */,
 				150E91C227B44EAA00FF4991 /* SettingView.swift in Sources */,
 				150E91BE27B44B8500FF4991 /* Setting.swift in Sources */,
-				151719D2278E184500A61C6D /* TableViewDelegate.swift in Sources */,
-				151719D4278E189100A61C6D /* TableViewDataSource.swift in Sources */,
 				151719CC27889F2F00A61C6D /* ViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
