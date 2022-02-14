@@ -8,7 +8,7 @@
 import Foundation
 
 class SettingsModel {
-    static func addCellsToSections() -> [[SettingsCell]] {
+    static func createModel() -> [[SettingsCell]] {
         return [
             // MARK: - FirstSection
             [SettingsCell(nameImage: "airplane",
